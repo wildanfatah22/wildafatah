@@ -1,8 +1,12 @@
-import { FaJava } from "react-icons/fa";
-import { FaPython } from "react-icons/fa";
-import { SiKotlin } from "react-icons/si";
-import { SiTensorflow } from "react-icons/si";
-import { SiFlutter } from "react-icons/si";
+import javaLogo from "../assets/java.svg";
+import kotlinLogo from "../assets/kotlin.svg";
+import tfLogo from "../assets/tensorflow.svg";
+import githubLogo from "../assets/github.svg";
+import asLogo from "../assets/as.svg";
+import figmaLogo from "../assets/figma.svg";
+import pythonLogo from "../assets/python.svg";
+import springLogo from "../assets/spring.svg";
+import flutterLogo from "../assets/flutter.svg";
 
 const Tech = () => {
   return (
@@ -10,19 +14,31 @@ const Tech = () => {
       <h1 className="my-20 text-center text-4xl">Technologies</h1>
       <div className="flex flex-wrap items center justify-center gap-4">
         <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiKotlin className="text-7xl text-cyan-400" />
+          <img src={kotlinLogo} className="text-7xl text-cyan-400" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiTensorflow className="text-7xl text-cyan-400" />
+          <img src={javaLogo} className="text-7xl text-cyan-400" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaJava className="text-7xl text-cyan-400" />
+          <img src={tfLogo} className="text-7xl text-cyan-400" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaPython className="text-7xl text-cyan-400" />
+          <img src={springLogo} className="text-7xl text-cyan-400" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiFlutter className="text-7xl text-cyan-400" />
+          <img src={flutterLogo} className="text-7xl text-cyan-400" />
+        </div>
+        <div className="rounded-2xl border-4 border-neutral-800 p-4">
+          <img src={figmaLogo} className="text-7xl text-cyan-400" />
+        </div>
+        <div className="rounded-2xl border-4 border-neutral-800 p-4">
+          <img src={githubLogo} className="text-7xl text-cyan-400" />
+        </div>
+        <div className="rounded-2xl border-4 border-neutral-800 p-4">
+          <img src={asLogo} className="text-7xl text-cyan-400" />
+        </div>
+        <div className="rounded-2xl border-4 border-neutral-800 p-4">
+          <img src={pythonLogo} className="text-7xl text-cyan-400" />
         </div>
       </div>
     </div>
