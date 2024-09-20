@@ -2,15 +2,16 @@ import logo from "../assets/logo.svg";
 // import { FaLinkedin } from "react-icons/fa";
 // import { FaGithub } from "react-icons/fa";
 // import { FaDiscord } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "tech", "experience", "projects", "contact"];
+      const sections = ["about", "skill", "experience", "projects", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       sections.forEach((section) => {
@@ -32,6 +33,19 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-[#4f4f4f2e] text-neutral-300 shadow-md py-4 z-50">
       <div className="container mx-auto flex justify-between items-center">
@@ -39,7 +53,7 @@ const Navbar: React.FC = () => {
           <img className="mx-2 w-10" src={logo} alt="logo" />
         </div>
         <div className="items-center gap-6 text-xl hidden md:flex">
-          {["about", "tech", "experience", "projects", "contact"].map(
+          {["about", "skill", "experience", "projects", "contact"].map(
             (menu) => (
               <a
                 key={menu}
@@ -74,8 +88,11 @@ const Navbar: React.FC = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 bg-[#4f4f4f2e] md:hidden flex flex-col items-center justify-center z-40">
-          {["about", "tech", "experience", "projects", "contact"].map(
+        <div
+          ref={menuRef}
+          className="fixed inset-0 bg-[#4f4f4f2e] md:hidden flex flex-col items-center justify-center z-40"
+        >
+          {["about", "skill", "experience", "projects", "contact"].map(
             (menu) => (
               <a
                 key={menu}
@@ -83,6 +100,7 @@ const Navbar: React.FC = () => {
                 className={`text-xl py-4 px-6 w-full text-center hover:text-cyan-500 ${
                   activeSection === menu ? "text-cyan-500" : ""
                 }`}
+                onClick={() => setIsOpen(false)}
               >
                 {menu.charAt(0).toUpperCase() + menu.slice(1)}
               </a>

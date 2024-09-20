@@ -1,5 +1,6 @@
 import { HERO_CONTENT } from "../utils";
 import profilePic from "../assets/foto_border.png";
+import { TypeAnimation } from "react-type-animation";
 
 const Hero: React.FC = () => {
   return (
@@ -11,7 +12,20 @@ const Hero: React.FC = () => {
               Hi!, I'am
             </h1>
             <h1 className="pb-16 text-4xl font-normal tracking-tight lg:text-6xl">
-              Wildan Fatahillah Akbar
+              <TypeAnimation
+                sequence={[
+                  "Wildan Fatahillah Akbar",
+                  2000,
+                  "",
+                  1000,
+                  "Wildan Fatahillah Akbar",
+                  2000,
+                ]}
+                wrapper="div"
+                cursor={true}
+                repeat={Infinity}
+                speed={50}
+              />
             </h1>
             <div className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent">
               Android Developer

@@ -20,10 +20,10 @@ const logos = [
   { src: githubLogo, alt: "Github" },
 ];
 
-const Tech: React.FC = () => {
+const Skill: React.FC = () => {
   return (
-    <div id="tech" className="border-b border-neutral-800 pb-24">
-      <h1 className="my-20 text-center text-4xl">Technologies</h1>
+    <div id="skill" className="border-b border-neutral-800 pb-24">
+      <h1 className="my-20 text-center text-4xl">Skills</h1>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {logos.map((logo, index) => (
           <div
@@ -45,4 +45,4 @@ const Tech: React.FC = () => {
   );
 };
 
-export default Tech;
+export default Skill;
