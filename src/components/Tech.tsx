@@ -8,38 +8,38 @@ import pythonLogo from "../assets/python.svg";
 import springLogo from "../assets/spring.svg";
 import flutterLogo from "../assets/flutter.svg";
 
-const Tech = () => {
+const logos = [
+  { src: asLogo, alt: "Android Studio" },
+  { src: kotlinLogo, alt: "Kotlin" },
+  { src: javaLogo, alt: "Java" },
+  { src: springLogo, alt: "Spring" },
+  { src: flutterLogo, alt: "Flutter" },
+  { src: tfLogo, alt: "TensorFlow" },
+  { src: pythonLogo, alt: "Python" },
+  { src: figmaLogo, alt: "Figma" },
+  { src: githubLogo, alt: "Github" },
+];
+
+const Tech: React.FC = () => {
   return (
-    <div className="border-b border-neutral-800 pb-24">
+    <div id="tech" className="border-b border-neutral-800 pb-24">
       <h1 className="my-20 text-center text-4xl">Technologies</h1>
-      <div className="flex flex-wrap items center justify-center gap-4">
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={kotlinLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={javaLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={tfLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={springLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={flutterLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={figmaLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={githubLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={asLogo} className="text-7xl text-cyan-400" />
-        </div>
-        <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <img src={pythonLogo} className="text-7xl text-cyan-400" />
-        </div>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        {logos.map((logo, index) => (
+          <div
+            key={index}
+            className="w-full sm:w-1/2 md:w-1/4 lg:w-1/6 p-4 flex justify-center"
+          >
+            <div className="rounded-2xl border-2 md:border-4 p-4 md:p-6 lg:p-8 border-neutral-800">
+              {/* Menyesuaikan padding dan border berdasarkan ukuran layar */}
+              <img
+                src={logo.src}
+                className="w-12 sm:w-6 md:w-8 lg:w-10 xl:w-12"
+                alt={logo.alt}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
