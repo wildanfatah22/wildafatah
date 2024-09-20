@@ -232,3 +232,8 @@ export const PROJECTS = [
     domain: "",
   },
 ];
+
+export const CONTACT = {
+  email: "awildanfatahillah@gmail.com",
+  linkedIn: "wildanfatahh22",
+};
