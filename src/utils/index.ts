@@ -7,7 +7,68 @@ export const ABOUT_CONTENT = `
   Let us work together and achieve great things!
   `;
 
-export const projectList = [
+export const EXPERIENCES = [
+  {
+    year: "Feb 2024 - Aug 2024",
+    role: "Back-End Java Engineer Student",
+    company: "SYNRGY Academy",
+    description: [
+      `Implemented RESTful APIs and integrated with PostgreSQL databases.`,
+    ],
+    technologies: ["Java", "Spring", "Spring Boot", "Postgres"],
+  },
+  {
+    year: "Aug 2023 - Jan 2024",
+    role: "Android Engineer Student",
+    company: "SYNRGY Academy",
+    description: [
+      `Developed user interfaces for android applications using Kotlin. Worked closely with backend developers to integrate frontend components. Implemented responsive designs and optimized frontend performance.`,
+    ],
+    technologies: ["Kotlin", "Retrofit", "Android Studio"],
+  },
+  {
+    year: "Aug 2023 - Jan 2024",
+    role: "Mobile Development Cohort",
+    company: "Bangkit Academy led By Google, Tokopedia, Gojek, & Traveloka",
+    description: [
+      `- Led a team of developers in creating "Explorin," a travel recommendation application that utilizes machine learning for personalized recommendations.`,
+      `- Demonstrated proficiency in Kotlin, MVVM architecture, Retrofit, and Kotlin Coroutines to build efficient and user-friendly mobile applications.`,
+    ],
+    technologies: ["Kotlin", "Retrofit", "Android Studio"],
+  },
+  {
+    year: "Feb 2023 - Jul 2023",
+    role: "Machine Learning Cohort",
+    company: "Bangkit Academy led By Google, Tokopedia, Gojek, & Traveloka",
+    description: [
+      `- Led a team of developers in creating "Exploreka," a travel recommendation system that leverages machine learning to provide personalized recommendations.`,
+      `- Successfully managed resources, made data-driven decisions, and fostered a collaborative team environment throughout the capstone project.`,
+    ],
+    technologies: ["Python", "TensorFlow", "Numpy", "FastAPI"],
+  },
+  {
+    year: "Jan 2023 - Mar 2023",
+    role: "IT Governance Analyst",
+    company: "Dinas Komunikasi dan Informatika Provinsi Jawa Timur",
+    description: [
+      `- Implemented an IT Balanced Scorecard framework to evaluate the effectiveness of the Kominfo helpdesk application in supporting business processes`,
+      `- Analyzed key performance indicators (KPIs) to measure application performance, identify areas for improvement, and ensure alignment with organizational goals.`,
+    ],
+    technologies: ["Analyst", "IT-BSC", "KPI"],
+  },
+  {
+    year: "Aug 2022 - Dec 2022",
+    role: "Front-End Developer",
+    company: "Astra Credit Companies (ACC)",
+    description: [
+      `- Demonstrated proficiency in OutSystems development by successfully integrating the backend REST API into a functional front-end website for the car rental application.`,
+      `- Utilized OutSystems' low-code capabilities to rapidly develop the front-end interface, ensuring a user-friendly and intuitive experience for customers.`,
+    ],
+    technologies: ["OutSystems"],
+  },
+];
+
+export const PROJECTS = [
   {
     id: 1,
     title: "Waste Classification App",
