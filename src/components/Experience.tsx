@@ -22,7 +22,7 @@ const Experience = () => {
                   {desc}
                 </p>
               ))}
-
+              <div className="mb-4" />
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}
