@@ -1,7 +1,7 @@
 import { ABOUT_CONTENT } from "../utils";
 import aboutPic from "../assets/about_photo.png";
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <div className="border-b border-neutral-900 pb-4">
       <h2 className="my-20 text-center text-4xl">

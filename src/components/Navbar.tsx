@@ -58,8 +58,8 @@ const Navbar: React.FC = () => {
               <a
                 key={menu}
                 href={`#${menu}`}
-                className={`hover:text-cyan-500 transition-colors ${
-                  activeSection === menu ? "text-cyan-500" : ""
+                className={`hover:text-[#E8BC55] transition-colors ${
+                  activeSection === menu ? "text-[#E8BC55]" : ""
                 }`}
               >
                 {menu.charAt(0).toUpperCase() + menu.slice(1)}
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
           )}
         </div>
         <button
-          className="md:hidden flex items-center px-3 py-2 border border-gray-600 rounded text-neutral-300 hover:text-cyan-500 focus:outline-none"
+          className="md:hidden flex items-center px-3 py-2 border border-gray-600 rounded text-neutral-300 hover:text-[#E8BC55] focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg
@@ -97,8 +97,8 @@ const Navbar: React.FC = () => {
               <a
                 key={menu}
                 href={`#${menu}`}
-                className={`text-xl py-4 px-6 w-full text-center hover:text-cyan-500 ${
-                  activeSection === menu ? "text-cyan-500" : ""
+                className={`text-xl py-4 px-6 w-full text-center hover:text-[#E8BC55] ${
+                  activeSection === menu ? "text-[#E8BC55]" : ""
                 }`}
                 onClick={() => setIsOpen(false)}
               >
