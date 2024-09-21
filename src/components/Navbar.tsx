@@ -24,23 +24,19 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        console.log("Clicked outside, closing menu."); // Debugging log
         setIsOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -49,7 +45,9 @@ const Navbar: React.FC = () => {
         <div className="flex flex-shrink-0 items-center">
           <img className="mx-2 w-10" src={logo} alt="logo" />
         </div>
-        <div className="items-center gap-6 text-xl hidden md:flex">
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6 text-xl">
           {["about", "skill", "experience", "projects", "contact"].map(
             (menu) => (
               <a
@@ -64,9 +62,11 @@ const Navbar: React.FC = () => {
             )
           )}
         </div>
+
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden flex items-center px-3 py-2 border border-gray-600 rounded text-neutral-300 hover:text-[#E8BC55] focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen((prev) => !prev)}
         >
           <svg
             className="w-6 h-6"
@@ -84,10 +84,13 @@ const Navbar: React.FC = () => {
           </svg>
         </button>
       </div>
+
+      {/* Mobile Menu */}
       {isOpen && (
         <div
           ref={menuRef}
           className="fixed inset-0 bg-[#4f4f4f2e] md:hidden flex flex-col items-center justify-center z-40"
+          aria-live="assertive"
         >
           {["about", "skill", "experience", "projects", "contact"].map(
             (menu) => (
