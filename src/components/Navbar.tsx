@@ -1,7 +1,4 @@
 import logo from "../assets/logo.svg";
-// import { FaLinkedin } from "react-icons/fa";
-// import { FaGithub } from "react-icons/fa";
-// import { FaDiscord } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 
 const Navbar: React.FC = () => {

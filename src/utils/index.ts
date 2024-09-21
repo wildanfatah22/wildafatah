@@ -250,5 +250,6 @@ export const PROJECTS = [
 
 export const CONTACT = {
   email: "awildanfatahillah@gmail.com",
-  linkedIn: "wildanfatahh22",
+  linkedIn: "/in/wildanfatahh22",
+  github: "wildanfatah22",
 };
