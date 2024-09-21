@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 
 const App: React.FC = () => {
   return (
-    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-[#E8BC55] selection:text-cyan-900 scroll-smooth">
+    <div className=" text-neutral-300 antialiased selection:bg-[#E8BC55] selection:text-cyan-900 scroll-smooth">
       <div className="fixed top-0 -z-10 h-full w-full">
         <div className="relative h-full w-full bg-black">
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
