@@ -1,7 +1,14 @@
 import { EXPERIENCES } from "../utils";
 import { motion } from "framer-motion";
+import { ExperienceItem } from "../types/iexperience";
 
-const Experience = () => {
+interface ExperienceProps {
+  experiences: ExperienceItem[];
+}
+
+const Experience: React.FC<ExperienceProps> = ({
+  experiences = EXPERIENCES,
+}) => {
   return (
     <div id="experience" className="border-b border-neutral-900 pb-4">
       <motion.h2
@@ -13,7 +20,7 @@ const Experience = () => {
         Experience
       </motion.h2>
       <div>
-        {EXPERIENCES.map((experience, index) => (
+        {experiences.map((experience, index) => (
           <motion.div
             key={index}
             className="mb-8 flex flex-wrap lg:justify-center"

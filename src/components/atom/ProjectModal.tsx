@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Project } from "../../types";
+import { Project } from "../../types/iproject";
 
 interface ProjectModalProps {
   project: Project;

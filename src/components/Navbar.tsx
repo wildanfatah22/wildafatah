@@ -1,26 +1,29 @@
+import { FC, useEffect, useRef, useState } from "react";
+import { Link } from "react-scroll";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import logo from "../assets/logo.svg";
-import { useState, useEffect, useRef } from "react";
 
-const Navbar: React.FC = () => {
+const sections = ["about", "skill", "experience", "projects", "contact"];
+
+const Navbar: FC = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "skill", "experience", "projects", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      sections.forEach((section) => {
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
-        if (
+        return (
           element &&
           element.offsetTop <= scrollPosition &&
           element.offsetTop + element.offsetHeight > scrollPosition
-        ) {
-          setActiveSection(section);
-        }
+        );
       });
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,8 +33,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        console.log("Clicked outside, closing menu."); // Debugging log
-        setIsOpen(false);
+        setNavbarOpen(false);
       }
     };
 
@@ -39,76 +41,84 @@ const Navbar: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleNavToggle = () => {
+    setNavbarOpen((prev) => !prev);
+  };
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id); // Update state immediately when clicked
+      setNavbarOpen(false); // Close the menu on selection
+    }
+  };
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#4f4f4f2e] text-neutral-300 shadow-md py-4 z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex flex-shrink-0 items-center">
-          <img className="mx-2 w-10" src={logo} alt="logo" />
-        </div>
+    <div className="relative">
+      <nav className="fixed top-0 left-0 w-full bg-[#4f4f4f2e] text-neutral-300 shadow-md py-4 z-50">
+        <div className="container mx-auto flex justify-between items-center relative">
+          {/* Logo */}
+          <div className="flex flex-shrink-0 items-center">
+            <img className="mx-2 w-10" src={logo} alt="logo" />
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 text-xl">
-          {["about", "skill", "experience", "projects", "contact"].map(
-            (menu) => (
-              <a
-                key={menu}
-                href={`#${menu}`}
-                className={`hover:text-[#E8BC55] transition-colors ${
-                  activeSection === menu ? "text-[#E8BC55]" : ""
-                }`}
-              >
-                {menu.charAt(0).toUpperCase() + menu.slice(1)}
-              </a>
-            )
-          )}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden flex items-center px-3 py-2 border border-gray-600 rounded text-neutral-300 hover:text-[#E8BC55] focus:outline-none"
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden flex items-center px-3 py-2 border border-gray-600 rounded text-neutral-300 hover:text-[#E8BC55] focus:outline-none z-50"
+            onClick={handleNavToggle}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
-      </div>
+            {navbarOpen ? (
+              <AiOutlineClose className="w-6 h-6" />
+            ) : (
+              <AiOutlineMenu className="w-6 h-6" />
+            )}
+          </button>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          ref={menuRef}
-          className="fixed inset-0 bg-[#4f4f4f2e] md:hidden flex flex-col items-center justify-center z-40"
-          aria-live="assertive"
-        >
-          {["about", "skill", "experience", "projects", "contact"].map(
-            (menu) => (
-              <a
-                key={menu}
-                href={`#${menu}`}
-                className={`text-xl py-4 px-6 w-full text-center hover:text-[#E8BC55] ${
-                  activeSection === menu ? "text-[#E8BC55]" : ""
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6 text-xl">
+            {sections.map((section) => (
+              <Link
+                key={section}
+                to={section}
+                smooth={true}
+                duration={500}
+                className={`hover:text-[#E8BC55] transition-colors ${
+                  activeSection === section ? "text-[#E8BC55]" : ""
                 }`}
-                onClick={() => setIsOpen(false)}
+                onSetActive={() => setActiveSection(section)}
               >
-                {menu.charAt(0).toUpperCase() + menu.slice(1)}
-              </a>
-            )
-          )}
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </Link>
+            ))}
+          </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile Menu */}
+        {navbarOpen && (
+          <div
+            ref={menuRef}
+            className="fixed top-16 left-0 w-full bg-[#1F1F1F] text-neutral-300 flex flex-col items-center space-y-4 p-6 shadow-lg transform transition-transform duration-300 ease-in-out z-40" // Animasi
+            aria-live="assertive"
+          >
+            <ul className="flex flex-col space-y-4">
+              {sections.map((section) => (
+                <li key={section}>
+                  <button
+                    onClick={() => scrollToSection(section)}
+                    className={`text-xl py-4 px-6 w-full text-center hover:text-[#E8BC55] transition-all ${
+                      activeSection === section ? "text-[#E8BC55]" : ""
+                    }`}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </nav>
+    </div>
   );
 };
 
