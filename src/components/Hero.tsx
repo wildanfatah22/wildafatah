@@ -54,9 +54,9 @@ const Hero: React.FC = () => {
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
+              className="bg-gradient-to-r from-[#F6E392] via-[#C89B41] to-[#B4843E] bg-clip-text text-4xl tracking-tight text-transparent"
             >
-              Android Developer
+              Android Developer & Machine Learning Engineer
             </motion.div>
             <motion.p
               variants={container(1)}

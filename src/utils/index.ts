@@ -9,14 +9,21 @@ import storyapp from "../assets/projects/storyapp.png";
 import carrental from "../assets/projects/rental.png";
 import bersukaria from "../assets/projects/bersukaria.png";
 import newsapp from "../assets/projects/newsapp.png";
+import javaLogo from "../assets/java.svg";
+import kotlinLogo from "../assets/kotlin.svg";
+import tfLogo from "../assets/tensorflow.svg";
+import githubLogo from "../assets/github.svg";
+import asLogo from "../assets/as.svg";
+import figmaLogo from "../assets/figma.svg";
+import pythonLogo from "../assets/python.svg";
+import springLogo from "../assets/spring.svg";
+import flutterLogo from "../assets/flutter.svg";
 
 export const HERO_CONTENT =
   "I am a fresh graduate passionate about mobile development and machine learning. Besides coding, I enjoy reading books and playing games.";
 
 export const ABOUT_CONTENT = `
-  I'm a dedicated individual with a strong track record of delivering exceptional results in both personal and professional endeavors. My passion for technology, coupled with my strong organizational skills and leadership abilities, have enabled me to excel in various roles and projects.
-  With a solid foundation in Machine Learning and Mobile Development, I've honed my skills through internships and active participation in organizations. My experience as a frontend developer in a financial company and involvement in the Bangkit Academy 2023 program have provided me with valuable hands-on experience and a deep understanding of industry best practices. I'm eager to leverage my technical expertise and problem-solving skills to contribute to innovative projects and drive positive change. My ability to collaborate effectively with teams, combined with my drive for continuous learning, makes me a valuable asset to any organization.
-  Let us work together and achieve great things!
+  I am a dedicated professional with a strong background in Machine Learning and Mobile Development. With hands-on experience from working as a frontend developer in the financial industry and completing the Bangkit Academy 2023 program, I’ve developed a deep understanding of industry best practices. My passion for technology, paired with strong organizational and leadership skills, allows me to deliver impactful solutions in every project. I thrive in collaborative environments and am always eager to contribute to innovative projects while continuously expanding my knowledge and skills. Let’s work together to create something meaningful and drive positive change.
   `;
 
 export const EXPERIENCES = [
@@ -253,3 +260,15 @@ export const CONTACT = {
   linkedIn: "/in/wildanfatahh22",
   github: "wildanfatah22",
 };
+
+export const LOGOS = [
+  { src: asLogo, alt: "Android Studio" },
+  { src: kotlinLogo, alt: "Kotlin" },
+  { src: javaLogo, alt: "Java" },
+  { src: springLogo, alt: "Spring" },
+  { src: flutterLogo, alt: "Flutter" },
+  { src: tfLogo, alt: "TensorFlow" },
+  { src: pythonLogo, alt: "Python" },
+  { src: figmaLogo, alt: "Figma" },
+  { src: githubLogo, alt: "Github" },
+];
