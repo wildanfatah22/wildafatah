@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="w-80 rounded-2xl"
+              className="w-80 rounded-3xl hover:shadow-[0_0_10px_5px_#E8BC55,_0_0_60px_10px_#E8BC55] transition-shadow duration-300 ease-in-out"
               src={profilePic}
               alt="wildan"
             />
