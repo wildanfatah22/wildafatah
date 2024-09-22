@@ -62,10 +62,22 @@ const Hero: React.FC = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="my-2 max-w-xl py-6 font-light tracking-tighter"
+              className="my-2 max-w-xl pt-6 pb-2 font-light tracking-tighter"
             >
               {HERO_CONTENT}
             </motion.p>
+
+            {/* Tombol Download CV */}
+            <motion.a
+              variants={container(1.5)}
+              initial="hidden"
+              animate="visible"
+              href="https://drive.google.com/file/d/1n2kXADdhF56f90tn54l_5o6RlktxVlR1/view?usp=sharing"
+              download
+              className="my-4 inline-block rounded-lg bg-[#E8BC55] px-6 py-3 text-sm font-semibold text-white hover:bg-[#c99a42] transition-colors"
+            >
+              Download CV
+            </motion.a>
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8">

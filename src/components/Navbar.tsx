@@ -57,7 +57,7 @@ const Navbar: FC = () => {
   return (
     <div className="relative">
       <nav className="fixed top-0 left-0 w-full bg-[#4f4f4f2e] text-neutral-300 shadow-md py-4 z-50">
-        <div className="container mx-auto flex justify-between items-center relative">
+        <div className="container mx-auto flex justify-between items-center relative px-4 md:px-8">
           {/* Logo */}
           <div className="flex flex-shrink-0 items-center">
             <img className="mx-2 w-10" src={logo} alt="logo" />
@@ -76,7 +76,7 @@ const Navbar: FC = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 text-xl">
+          <div className="hidden md:flex items-center gap-6 text-lg">
             {sections.map((section) => (
               <Link
                 key={section}
@@ -95,28 +95,28 @@ const Navbar: FC = () => {
         </div>
 
         {/* Mobile Menu */}
-        {navbarOpen && (
-          <div
-            ref={menuRef}
-            className="fixed top-16 left-0 w-full bg-[#1F1F1F] text-neutral-300 flex flex-col items-center space-y-4 p-6 shadow-lg transform transition-transform duration-300 ease-in-out z-40" // Animasi
-            aria-live="assertive"
-          >
-            <ul className="flex flex-col space-y-4">
-              {sections.map((section) => (
-                <li key={section}>
-                  <button
-                    onClick={() => scrollToSection(section)}
-                    className={`text-xl py-4 px-6 w-full text-center hover:text-[#E8BC55] transition-all ${
-                      activeSection === section ? "text-[#E8BC55]" : ""
-                    }`}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div
+          ref={menuRef}
+          className={`${
+            navbarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:hidden fixed top-0 left-0 w-3/4 h-full bg-[#1F1F1F] text-neutral-300 flex flex-col items-center space-y-4 p-6 shadow-lg transform transition-transform duration-300 ease-in-out z-40`}
+          aria-live="assertive"
+        >
+          <ul className="flex flex-col space-y-6">
+            {sections.map((section) => (
+              <li key={section}>
+                <button
+                  onClick={() => scrollToSection(section)}
+                  className={`text-lg py-4 px-6 w-full text-center hover:text-[#E8BC55] transition-all ${
+                    activeSection === section ? "text-[#E8BC55]" : ""
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </div>
   );
