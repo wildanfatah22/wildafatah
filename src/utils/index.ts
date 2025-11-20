@@ -18,7 +18,6 @@ import figmaLogo from "../assets/figma.svg";
 import pythonLogo from "../assets/python.svg";
 import springLogo from "../assets/spring.svg";
 import flutterLogo from "../assets/flutter.svg";
-import { desc } from "framer-motion/client";
 
 export const CV =
   "https://drive.google.com/file/d/1n2kXADdhF56f90tn54l_5o6RlktxVlR1/view?usp=sharing";
