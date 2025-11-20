@@ -1,4 +1,4 @@
-import { HERO_CONTENT } from "../utils";
+import { CV, HERO_CONTENT } from "../utils";
 import profilePic from "../assets/foto_border.png";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -72,11 +72,11 @@ const Hero: React.FC = () => {
               variants={container(1.5)}
               initial="hidden"
               animate="visible"
-              href="https://drive.google.com/file/d/1n2kXADdhF56f90tn54l_5o6RlktxVlR1/view?usp=sharing"
+              href={CV}
               download
               className="my-4 inline-block rounded-lg bg-[#E8BC55] px-6 py-3 text-sm font-semibold text-white hover:bg-[#c99a42] transition-colors"
             >
-              Download CV
+              Check CV
             </motion.a>
           </div>
         </div>
