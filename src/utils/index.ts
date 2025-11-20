@@ -18,6 +18,10 @@ import figmaLogo from "../assets/figma.svg";
 import pythonLogo from "../assets/python.svg";
 import springLogo from "../assets/spring.svg";
 import flutterLogo from "../assets/flutter.svg";
+import { desc } from "framer-motion/client";
+
+export const CV =
+  "https://drive.google.com/file/d/1n2kXADdhF56f90tn54l_5o6RlktxVlR1/view?usp=sharing";
 
 export const HERO_CONTENT =
   "I am a fresh graduate passionate about mobile development and machine learning. Besides coding, I enjoy reading books and playing games.";
@@ -28,11 +32,23 @@ export const ABOUT_CONTENT = `
 
 export const EXPERIENCES = [
   {
+    year: "Oct 2024 - Present",
+    role: "Mendix Developer",
+    company: "CIMB Niaga",
+    description: [
+      `Built and enhanced core modules of the CAPEX Management System (dashboard, baseline, drawdown, benefit tracking, approval workflow) using Mendix Low Code Platform, supporting digital transformation of enterprise CAPEX approval processes.`,
+      `Designed and implemented a Role-Based Access Control (RBAC) system via Access Control Matrix (ACM), improving permission accuracy and ensuring compliance with CIMB Group’s enterprise security policies.`,
+      `Collaborated with cross-functional stakeholders to design email-based approval and reminder automation, enhancing transparency, accountability, and shortening CAPEX approval cycles by ~25%.`,
+    ],
+    technologies: ["Mendix", "Low-Code Development", "Java"],
+  },
+  {
     year: "Feb 2024 - Aug 2024",
     role: "Back-End Java Engineer Student",
     company: "SYNRGY Academy",
     description: [
-      `Implemented RESTful APIs and integrated with PostgreSQL databases.`,
+      `Developed a RESTful money management API using Spring Boot, Spring Data JPA, and Hibernate with PostgreSQL as the database.`,
+      `Applied a layered architecture (Controller–Service–Repository) and versioned database migration to support easier maintenance and scalability.`,
     ],
     technologies: ["Java", "Spring", "Spring Boot", "Postgres"],
   },

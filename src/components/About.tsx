@@ -22,7 +22,11 @@ const About: React.FC = () => {
           className="w-full lg:w-1/2 lg:p-8"
         >
           <div className="flex items-center justify-center">
-            <img className="w-80 rounded-2xl" src={aboutPic} alt="about" />
+            <img
+              className="w-80 rounded-3xl hover:shadow-[0_0_10px_5px_#E8BC55,_0_0_60px_10px_#E8BC55] transition-shadow duration-300 ease-in-out"
+              src={aboutPic}
+              alt="about"
+            />
           </div>
         </motion.div>
         <motion.div
